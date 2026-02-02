@@ -1,0 +1,42 @@
+piipeline {
+    agent any
+        stages {
+	    stage('Checkout') {
+		steps {
+		    git branch: 'main', url: 'https://github.com/chandana-9c/Jenkins-Beginner'
+		}
+	    }
+	    stage('Build') {
+		steps {
+		    echo "Building the project......"
+		}
+	    }
+	    stage('Test') {
+		steps {
+		    echo "Running tests........."
+		    sh 'python3 jenkins01-pipeline-webhook-declarative/Taskfile.py'
+		}
+	    }
+	    stage('Deploy') {
+		steps {
+		    echo "Deploy stage demo complete..........."
+		}
+	    }
+	}
+}
+
+/*
+* pipeline {
+*  agent any
+*  stages {
+*    stage('Check changes') {
+*      when {
+*        changeset "Folder2/**"
+*      }
+*      steps {
+*        echo "Folder2 changed → running pipeline"
+*      }
+*    }
+*  }
+*}
+*/
