@@ -9,13 +9,13 @@ pipeline {
       stage('Build Docker Image') {
       steps {
 	echo "Building Docker image..."
-	sh 'docker build -t jenkins01-pipeline-webhook-declarative-with-docker:latest jenkins-with-docker' // added 'jenkins-with-docker' - mentioning folder inside repo/dir  insted - of '.' - for current directory
+	sh 'docker build -t tagname-test01:latest jenkins01-pipeline-webhook-declarative-with-docker' // added 'jenkins-with-docker' - mentioning folder inside repo/dir  insted - of '.' - for current directory
       }
     }
     stage('Run Docker Container') {
       steps {
         echo "Running Docker container..."
-        sh 'docker run --rm jenkins01-pipeline-webhook-declarative-with-docker:latest'
+        sh 'docker run --rm tagname-test01:latest'
       }
     }
     }
