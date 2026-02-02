@@ -1,0 +1,9 @@
+# Dockerfile
+FROM python:3.11-slim
+
+# current working dir/folder
+WORKDIR /jenkins01-pipeline-webhook-declarative-with-docker/app                  
+
+# = COPY FileExample.py /app/FileExample.py
+COPY FileExample.py . 
+CMD ["python", "FileExample.py"]

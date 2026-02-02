@@ -1,0 +1,22 @@
+pipeline {
+  agent any
+    stages {
+      stage('Checkout') {
+        steps {
+	  git branch: 'main', url: 'https://github.com/chandana-9c/Jenkins-Beginner' // go to this repo and do the task. branch mentined here can be different from branch mention in your j-pipeline
+	}
+      }
+      stage('Build Docker Image') {
+      steps {
+	echo "Building Docker image..."
+	sh 'docker build -t jenkins01-pipeline-webhook-declarative-with-docker:latest jenkins-with-docker' // added 'jenkins-with-docker' - mentioning folder inside repo/dir  insted - of '.' - for current directory
+      }
+    }
+    stage('Run Docker Container') {
+      steps {
+        echo "Running Docker container..."
+        sh 'docker run --rm jenkins01-pipeline-webhook-declarative-with-docker:latest'
+      }
+    }
+    }
+}
