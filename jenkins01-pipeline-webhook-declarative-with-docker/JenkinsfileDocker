@@ -10,7 +10,7 @@ pipeline {
       steps {
 	echo "Building Docker image..."
 	sh 'docker build -t tagname-test01:latest jenkins01-pipeline-webhook-declarative-with-docker' // added 'jenkins-with-docker' - mentioning folder inside repo/dir  insted - of '.' - for current directory
-      }
+      } // if your docker file name is other than 'dockerfile' -- docker build -t tagname-test01:latest -f jenkins01-pipeline-webhook-declarative-with-docker/DockerFile jenkins01-pipeline-webhook-declarative-with-docker
     }
     stage('Run Docker Container') {
       steps {
