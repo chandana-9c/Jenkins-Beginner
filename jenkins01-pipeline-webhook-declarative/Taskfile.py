@@ -1,1 +1,1 @@
-Print('Jenkins Declarative Example')
+print('Jenkins Declarative Example')
